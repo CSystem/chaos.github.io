@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "「Egret」1 常用命令行"
-subtitle:   " Egret入门命令"
+subtitle:   " 	Egret入门命令"
 date:       2020-04-08 21:00:00
 author:     "AF"
 header-img: "img/post-bg-2015.jpg"
