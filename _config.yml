@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     王鹏飞
+weibo_username:     TeSebastian
 zhihu_username:     王鹏飞
 github_username:    CSystem
 twitter_username:   wangperfe
