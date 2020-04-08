@@ -1,0 +1,56 @@
+---
+layout:     post
+title:      "「Egret」1 常用命令行"
+subtitle:   " Egret入门命令"
+date:       2020-04-08 21:00:00
+author:     "AF"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 游戏引擎
+    - Meta
+---
+
+### Egret常用命令行
+
+1.创建一个HTML5游戏：
+
+    egret create ACoolHtmlGame
+
+2.创建对应的native游戏
+- IOS版本
+
+    >egret create_app ACoolIosGame -f ACoolHtmlGame -t ../egret-support/egret-ios-support
+    
+- Android版本
+
+    >egret create_app ACoolAndroidGame -f ACoolHtmlGame -t ../egret-support/egret-android-support
+    
+>-f参数则指定我们的HTML5游戏项目，我们直接将刚刚创建的HTML5项目路径填写进入即可。
+
+>-t参数则是native项目工程的模板，我们需要指定“egret-ios-support”或“egret-android-support”项目路径。
+
+3.编译当前项目到native工程
+
+    egret build ACoolHtmlGame --runtime native -e
+
+>这行命令执行了两项任务：
+
+>1.编译TypeScript到JavaScript
+
+>2.将编译出的文件同步到Xcode项目中。
+- 这里需要注意的有两点：
+
+    - 1.编译的项目是HTML5项目
+    - 2.不要更改iOS项目的位置，项目位置的设置将在高级教程给出
+    - 3.此时HTML5项目会失效，想查看HTML5项目，请使用
+
+4.编译web项目,此时会和native失去链接，不会编译到native
+
+    egret build ACoolHtmlGame -e
+
+5.启动游戏
+
+    egret startserver ACoolHtmlGame 
+
+

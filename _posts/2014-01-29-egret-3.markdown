@@ -1,0 +1,125 @@
+---
+layout:     post
+title:      "「Egret」3 热更新"
+subtitle:   " 热更新的设置"
+date:       2020-04-08 21:00:00
+author:     "AF"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 游戏引擎
+    - Meta
+---
+
+### 热更新
+
+- ***native代码编译***
+>egret build ActGameIOS/ActGameAndroidAS --runtime native -e
+- ***native热更新包资源编译***
+>egret publish --runtime native|html5 --version version
+
+***1.IOS热更新示例***
+- 设置更新配置
+```
+//ViewController.mm
+-(void)setLoaderUrl:(int)mode{
+    switch(mode){
+        case 2:
+            //接入模式2:调试模式,直接使用本地游戏
+            _options[@OPTION_LOADER_URL] = @"";
+            _options[@OPTION_UPDATE_URL] = @"";
+            break;
+        case 1:
+            //接入模式2a：发布模式,使用URL指定的zip
+            //_options[@OPTION_LOADER_URL] = @"http://www.yourhost.com/game_code.zip";
+            //_options[@OPTION_UPDATE_URL] = @"http://www.yourhost.com/update_url";
+            //接入模式2b:发布模式,使用指定的服务器脚本,返回json参见项目中的egret.json
+            _options[@OPTION_LOADER_URL] = @"http://yourip:port";
+            break;
+        default:
+            // 接入模式0：发布模式，使用本地zip发布，推荐
+            _options[@OPTION_LOADER_URL] = EGRET_PUBLISH_ZIP;
+            break;
+    }
+}
+```
+- 设置loadingview
+```
+- (instancetype)initWithContainerFrame:(CGRect)containerFrame {
+    if (self = [super init]) {
+        self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        self.progressView.progress = 0;
+        UIImage*progressImage =[UIImage imageNamed:@"schedule_di05.png"];
+        UIImage*trackImage =[UIImage imageNamed:@"schedule_jingyan03.png"];
+        CGFloat top = 10; // 顶端盖高度
+        CGFloat bottom = 10 ; // 底端盖高度
+        CGFloat left = 20; // 左端盖宽度
+        CGFloat right = 20; // 右端盖宽度
+        UIEdgeInsets insets = UIEdgeInsetsMake(top, left, bottom, right);
+        progressImage = [progressImage resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+        trackImage = [trackImage resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+        self.progressView.trackImage = trackImage;
+        self.progressView.progressImage =progressImage;
+        float scale = 0.8135;
+        CGRect rect = CGRectMake(0, 0, containerFrame.size.width * scale, 20);
+        rect.origin.x = containerFrame.size.width * (1.0 - scale) / 2;
+        rect.origin.y = containerFrame.size.height * scale;
+        self.progressView.frame = rect;
+        self.progressView.transform = CGAffineTransformMakeScale(1.0f, 20.0f);
+        self.bgView = [[UIView alloc] initWithFrame:containerFrame];
+        [self.bgView setBackgroundColor:[[UIColor alloc] initWithRed:0.f green:0.f blue:0.f alpha:1.f]];
+       
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:containerFrame];
+        UIImage *image = [UIImage imageNamed:@"beijingtu.jpg"];
+        NSLog(@"image ===%@",image);
+        imageView.image = image;
+         [self.bgView addSubview:imageView];
+        [self.bgView addSubview: self.progressView];
+    }
+    return self;
+}
+```
+***2.Android热更新示例***
+- 同样在setLoadUrl中设置
+
+***3.热更新资源服务器配置***
+- 返回格式要求
+```
+{
+"code_url": "http://10.0.5.158/app/151023172200/game_code_151023172200.zip",//游戏代码zip包路径
+"update_url": "http://10.0.5.158/app/151023172200" //游戏资源存放路径
+}
+```
+- web端php示例
+```
+<?php
+define('CASE_NAME', '151023172200');
+function startsWith($string, $pattern) {
+    return $pattern === "" || strrpos($string, $pattern, -strlen($string)) !== FALSE;
+}
+$json = array();  //不存在就false;
+if (!startsWith(CASE_NAME, 'http://')) {
+    $ip = "http://10.0.5.155/app/";
+    $root = $ip  . CASE_NAME ."/game_code_".CASE_NAME. ".zip";
+    $update = $ip  . CASE_NAME;
+    $json["code_url"] = $root;
+    $json["update_url"] = $update;
+} else {
+    $json["code_url"] = CASE_NAME;
+    $json["update_url"] = dirname(CASE_NAME);
+}
+echo(json_encode($json));
+```
+
+***4.热更新操作流程***
+
+> 热更新的机制比较简单。基本就几步：
+
+>1.修改 Android 封装项目入口文件的 setLoaderUrl 方法,并发布正式版本APP。
+
+>2.每次H5版本有资源或代码修改，执行egret publish --runtime native发布命令。
+
+>3.拷贝所生成的文件夹到WEB服务器，并修改服务器中更新路径。
+
+>4.确保每次 zip 包的名称不一样。
+    
