@@ -14,13 +14,18 @@ tags:
 ### 热更新
 
 - ***native代码编译***
+
 >egret build ActGameIOS/ActGameAndroidAS --runtime native -e
+
 - ***native热更新包资源编译***
+
 >egret publish --runtime native|html5 --version version
 
 ***1.IOS热更新示例***
+
 - 设置更新配置
-```
+
+```mm
 //ViewController.mm
 -(void)setLoaderUrl:(int)mode{
     switch(mode){
@@ -43,8 +48,10 @@ tags:
     }
 }
 ```
+
 - 设置loadingview
-```
+
+```mm
 - (instancetype)initWithContainerFrame:(CGRect)containerFrame {
     if (self = [super init]) {
         self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
@@ -68,7 +75,6 @@ tags:
         self.progressView.transform = CGAffineTransformMakeScale(1.0f, 20.0f);
         self.bgView = [[UIView alloc] initWithFrame:containerFrame];
         [self.bgView setBackgroundColor:[[UIColor alloc] initWithRed:0.f green:0.f blue:0.f alpha:1.f]];
-       
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:containerFrame];
         UIImage *image = [UIImage imageNamed:@"beijingtu.jpg"];
         NSLog(@"image ===%@",image);
@@ -79,19 +85,25 @@ tags:
     return self;
 }
 ```
+
 ***2.Android热更新示例***
+
 - 同样在setLoadUrl中设置
 
 ***3.热更新资源服务器配置***
+
 - 返回格式要求
-```
+
+```json
 {
 "code_url": "http://10.0.5.158/app/151023172200/game_code_151023172200.zip",//游戏代码zip包路径
 "update_url": "http://10.0.5.158/app/151023172200" //游戏资源存放路径
 }
 ```
+
 - web端php示例
-```
+
+```php
 <?php
 define('CASE_NAME', '151023172200');
 function startsWith($string, $pattern) {
@@ -115,11 +127,10 @@ echo(json_encode($json));
 
 > 热更新的机制比较简单。基本就几步：
 
->1.修改 Android 封装项目入口文件的 setLoaderUrl 方法,并发布正式版本APP。
+* 1.修改 Android 封装项目入口文件的 setLoaderUrl 方法,并发布正式版本APP。
 
->2.每次H5版本有资源或代码修改，执行egret publish --runtime native发布命令。
+* 2.每次H5版本有资源或代码修改，执行egret publish --runtime native发布命令。
 
->3.拷贝所生成的文件夹到WEB服务器，并修改服务器中更新路径。
+* 3.拷贝所生成的文件夹到WEB服务器，并修改服务器中更新路径。
 
->4.确保每次 zip 包的名称不一样。
-    
+* 4.确保每次 zip 包的名称不一样。
