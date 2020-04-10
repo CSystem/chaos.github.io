@@ -64,7 +64,13 @@ disqus_username: false
 # Netease settings
 netease_comment: false
 
-
+gitalk:
+    enable: true
+    owner: CSystem
+    repo: csystem.github.io
+    clientID: bd43900897da43e7d16c
+    clientSecret: a002c4c5a434f024f7a5956189a67382e9b2f417
+    admin: CSystem
 
 # Analytics settings
 # Baidu Analytics 
