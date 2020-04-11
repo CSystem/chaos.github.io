@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: wangperfe@gmail.com
 description: "关于程序与设计、黑客与画家 | 阿飞，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @AF阿飞 的个人博客，与你一起发现更大的世界。"
 keyword: "阿飞, AF阿飞, 鬼栈, 阿飞的博客, AF Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计"
-url: "https://huangxuan.me"              # your host, for absolute URL
+url: "http://www.wangperfe.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 recordid: ""
 # "蒙ICP备19005609号"
@@ -79,7 +79,7 @@ gitalk:
 
 # Google Analytics
 ga_track_id: 'UA-163136920-1'            # Format: UA-xxxxxx-xx
-ga_domain: www.57wan8.com
+ga_domain: www.wangperfe.com
 
 
 
