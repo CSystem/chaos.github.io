@@ -15,6 +15,9 @@ layout: default
 
 <script src="{{ "/js/gitalk.min.js " | prepend: site.baseurl }}"></script>
 
+<link rel="stylesheet" href="{{ "/css/reward.css" | prepend: site.baseurl }}">
+
+
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -53,6 +56,38 @@ layout: default
                     {% endif %}
                 </ul>
                 <hr style="visibility: hidden;">
+
+
+                 <!-- 打赏功能 -->
+            <div>
+                <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+                <div>☛兄dei，请我喝杯茶☚</div>
+                <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+                    <span>打赏</span>
+                </button>
+                <div id="QR" style="display: none;">
+                        
+                        
+                <div id="wechat" style="display: inline-block">
+                <img id="wechat_qr" src="/img/payimg/weipayimg.jpg" alt="yizibi 微信支付"/>
+                            <p>微信支付</p>
+                </div>
+                        
+                        
+                        
+                <div id="alipay" style="display: inline-block">
+                <img id="alipay_qr" src="/img/payimg/alipayimg.jpg" alt="yizibi 支付宝"/>
+                <p>支付宝</p>
+                </div>
+                        
+                        
+                        
+                        
+                </div>
+                </div>
+                
+            </div>
+
 
                 {% if site.disqus_username %}
                 <!-- disqus 评论框 start -->

@@ -27,6 +27,7 @@ const PRECACHE_LIST = [
   "./css/bootstrap.min.css",
   "./css/gitalk.css",
   "./js/gitalk.min.js",
+  "./css/reward.css",
 
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
