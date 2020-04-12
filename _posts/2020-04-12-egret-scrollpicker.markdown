@@ -138,3 +138,4 @@ class ScrollPicker extends egret.EventDispatcher {
 }
 ```
 
+![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-12-egret-scrollpicker.gif)
