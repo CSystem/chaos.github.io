@@ -2,7 +2,7 @@
 layout:     post
 title:      "「游戏中的数学」 1 向量"
 subtitle:   " 	2D,3D游戏数学"
-date:       2020-04-13 23:00:00
+date:       2020-04-14 23:00:00
 author:     "AF"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
