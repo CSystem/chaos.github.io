@@ -57,8 +57,8 @@ def resizeFilter(filename):
         return True
     return False
 
-def resize(dir,maxsize):
-    for parent, dirnames, filenames in os.walk(dir):
+def resize(dirpath,maxsize):
+    for parent, dirnames, filenames in os.walk(dirpath):
         for filename in filenames:
             if not resizeFilter(filename):
                 continue
