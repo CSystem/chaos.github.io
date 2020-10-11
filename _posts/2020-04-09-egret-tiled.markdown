@@ -34,7 +34,7 @@ tags:
 
 * Egret中只能选择Base64(uncompressed)模式，不支持压缩格式所以要打开修改一下,然后重新导出或直接保存tmx文件
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-09-egret-tiledmap-1.png)
+![avatar](http://www.57wan8.com/2020-04-09-egret-tiledmap-1.png)
 
 > 注意： Egret 中还不支持载入tsx文件,用记事本打开desert.tmx文件
 
@@ -90,4 +90,4 @@ class TiledMapTest extends egret.DisplayObjectContainer {
 
 效果如下:
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-09-egret-tiledmap-2.png)
+![avatar](http://www.57wan8.com/2020-04-09-egret-tiledmap-2.png)

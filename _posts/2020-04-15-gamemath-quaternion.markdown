@@ -37,7 +37,7 @@ Unity中最简单的万向锁就是先让X轴旋转90度，此时Z轴与物体�
 
 > 比较经典的一个欧拉角万向锁的动画演示视频: https://v.youku.com/v_show/id_XNzkyOTIyMTI=.html
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-15-gamemath-quaternion.gif)
+![avatar](http://www.57wan8.com/2020-04-15-gamemath-quaternion.gif)
 
 ### 二.四元数
 

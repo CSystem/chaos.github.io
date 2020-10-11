@@ -220,4 +220,4 @@ class FlipBookTest extends egret.DisplayObjectContainer {
 }
 ```
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-13-egret-flipbook.gif)
+![avatar](http://www.57wan8.com/2020-04-13-egret-flipbook.gif)

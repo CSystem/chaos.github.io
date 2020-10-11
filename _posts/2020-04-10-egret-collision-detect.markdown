@@ -55,7 +55,7 @@ if( distance <= width1/2 + width2/2 ){
 
 > 计算圆和矩形的碰撞可以把圆和矩形放到同一个坐标系，因为圆是可以随意旋转的，以圆形的中点为坐标系原点，只要保证坐标系的x,y轴和矩形的对应边是平行的就好
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-09-egret-collision-detect-1.png)
+![avatar](http://www.57wan8.com/2020-04-09-egret-tiledmap-1.png)
 
 ```typescript
 

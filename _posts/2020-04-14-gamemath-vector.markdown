@@ -52,7 +52,7 @@ v1( x1, y1，z1) * v2(x2, y2,z2) = x1 * x2 + y1 * y2 + z1 * z2;
 
 下面这张图说明的是点积返回的结果与两个向量之间夹角的关系：
 
-![avatar](http://q8ixw72rd.bkt.clouddn.com/2020-04-14-gamemath-vector-1.jpg)
+![avatar](http://www.57wan8.com/2020-04-14-gamemath-vector-1.jpg)
 
 angle = acos(A dot B)
 
